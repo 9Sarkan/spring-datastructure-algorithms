@@ -16,4 +16,8 @@ public class Tree {
     public Node root(){
         return this.root;
     }
+
+    public void setRoot(Node root){
+        this.root = root;
+    }
 }
