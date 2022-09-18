@@ -1,5 +1,8 @@
 package com.datastructure.demo.controller;
 
+import java.util.*;
+import java.util.function.UnaryOperator;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -41,6 +44,13 @@ public class Tree {
     @GetMapping(path="/bst/test")
     @ResponseStatus(code=HttpStatus.OK)
     public JSONObject testBSTree(){
+
+        Map<String, Integer> test = new HashMap<String, Integer>();
+        test.put("t1", 10);
+        test.put("t1", 10);
+        System.out.print(test.size());
+
+
         // create a tree
         BinarySearchTree tree = new BinarySearchTree(30);
         
@@ -72,7 +82,7 @@ public class Tree {
         searchObj.put("result", searchedNode != null);
 
 
-        obj.put("search", searchObj);
+        // obj.put("search", list);
 
         return obj;
     }
