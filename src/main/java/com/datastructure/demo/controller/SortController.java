@@ -16,7 +16,7 @@ import net.minidev.json.JSONObject;
 public class SortController {
     
     @GetMapping(path="/")
-    public JSONObject bubbleSort(){
+    public JSONObject sortSample(){
         int[] arr = new int[]{23,54,123,34,1,22,65,90, 54};
         int[] originArray = Arrays.copyOfRange(arr, 0, arr.length);
 
