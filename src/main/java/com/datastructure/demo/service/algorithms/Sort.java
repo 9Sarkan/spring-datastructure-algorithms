@@ -1,5 +1,7 @@
 package com.datastructure.demo.service.algorithms;
 
+import com.jayway.jsonpath.internal.function.text.Length;
+
 public class Sort {
 
     public int[] bubbleSort(int[] array){
@@ -33,6 +35,19 @@ public class Sort {
             int temp = array[minimum];
             array[minimum] = array[i];
             array[i] = temp;
+        }
+        return array;
+    }
+
+    public int[] insertionSort(int[] array) {
+        for (int i = 1; i < array.length; i++){
+            for (int j = 0; j < i; j++){
+                if (array[j] > array[i]){
+                    int temp = array[j];
+                    array[j] = array[i];
+                    array[i] = temp;
+                }
+            }
         }
         return array;
     }
