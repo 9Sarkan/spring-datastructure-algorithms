@@ -28,6 +28,7 @@ public class SortController {
         obj.put("bubbleSortedArray", sortObj.bubbleSort(Arrays.copyOfRange(arr, 0, arr.length)));
         obj.put("selectionSortedArray", sortObj.selectionSort(Arrays.copyOfRange(arr, 0, arr.length)));
         obj.put("insertionSortedArray", sortObj.insertionSort(Arrays.copyOfRange(arr, 0, arr.length)));
+        obj.put("mergeSortedArray", sortObj.mergeSort(Arrays.copyOfRange(arr, 0, arr.length)));
 
         return obj;
     }

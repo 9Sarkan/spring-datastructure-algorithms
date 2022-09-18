@@ -1,6 +1,5 @@
 package com.datastructure.demo.service.algorithms;
 
-import com.jayway.jsonpath.internal.function.text.Length;
 
 public class Sort {
 
@@ -50,5 +49,63 @@ public class Sort {
             }
         }
         return array;
+    }
+
+    public int[] mergeSort(int[] array){
+        mergeSort(array, 0, array.length - 1);
+        return array;
+    }
+
+    private void mergeSort(int[] array, int left, int right){
+        if (left < right){
+            int middle = (left + right) / 2;
+            mergeSort(array, left, middle);
+            mergeSort(array, middle+1, right);
+            merge(array, left, middle, right);
+        }
+    }
+
+    private void merge(int[] array, int left, int middle, int right){
+        // calculate len of both sub-arraies and create them
+        int lenLeft = middle - left + 1;
+        int lenRight = right - middle;
+
+        int[] leftSide = new int[lenLeft];
+        int[] rightSide = new int[lenRight];
+
+        // fill both arraies
+        for (int i = 0; i < lenLeft; i++){
+            leftSide[i] = array[left + i];
+        }
+        for (int j = 0; j < lenRight; j++){
+            rightSide[j] = array[middle + j + 1];
+        }
+
+        // iterate to merge both arraies
+        int i, j, k;
+        i = j = 0;
+        k = left;
+        while(i < lenLeft && j < lenRight){
+            if (leftSide[i] < rightSide[j]){
+                array[k] = leftSide[i];
+                i++;
+            } else {
+                array[k] = rightSide[j];
+                j++;
+            }
+            k++;
+        }
+
+        // check which sub array still not finished and move its items to main array
+        while (i < lenLeft) {
+            array[k] = leftSide[i];
+            i++;
+            k++;
+        }
+        while (j < lenRight){
+            array[k] = rightSide[j];
+            j++;
+            k++;
+        }
     }
 }
